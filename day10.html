@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-10</title>
+    <style>
+        body{
+            background-color:black;
+            color:white;
+        }
+
+        img{
+            display: none;
+        }
+
+        #box{
+            width:250px;
+            height:250px;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Day-10: Event Handeling</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ex natus, amet cum dicta aperiam maiores exercitationem deleniti numquam dolorum minima nostrum harum consequuntur rem, ipsa ut sunt dolorem? Modi!</p>
+    <!-- <p id="para">Text before you click this button</p>
+    <button id="btn">Click Me</button> -->
+
+    <!-- <button id="btn">double-click me to view the image</button>
+    <img id='pw' src="images/PW.jpeg"> -->
+
+    <!-- <div id="box">
+        <button id='btn'>Click Me</button>
+    </div> -->
+
+    <!-- <input id="keyPress">     -->
+
+    <!-- <form>
+        Name: <input id = 'name' type="text"><br>
+        Age: <input id="age" type="number"><br>
+        <button id ='submit' type="submit">Submit</button>
+    </form> -->
+    <select id="lang">
+        <option>JS</option>
+        <option>Py</option>
+        <option>C</option>
+    </select>
+    <p id="result">Select a language</p>
+
+    <ul id="list">
+        <li>C</li>
+        <li>C++</li>
+        <li>Java</li>
+    </ul>
+</body>
+<script>
+    //Activity-1: Basic Event Handling
+    //Task-1: 
+    // const btn = document.querySelector('#btn')
+    // console.log(btn)
+    // btn.addEventListener('click',() => {
+    //     document.querySelector('#para').innerText = 'The text has been changed'
+    // })
+
+    //Task-2:
+        // const btn = document.querySelector('#btn')
+        // btn.addEventListener('dblclick',()=>{
+        //     document.querySelector('#pw').style.display = 'block'
+        // })
+
+    //Task-3 and 4:
+    // const ranNum = (n)=>{
+    //     return Math.random()*(n+1)
+    // }
+    // const btn = document.querySelector('#btn')
+    // btn.addEventListener('mouseover',()=>{
+    //     document.querySelector('#box').style.backgroundColor = 'purple'
+    // })
+    // btn.addEventListener('mouseout',()=>{
+    //     document.querySelector('#box').style.backgroundColor = 'white'
+    // })
+
+    //Activity-3:Keyboard Events
+    //Task-5:
+    // document.querySelector('#keyPress').addEventListener('keydown',(e) => {
+    //     log.textContent += e.code;
+    // })
+
+    //Task-6:
+    // document.querySelector('#keyPress').addEventListener('keyup',(e) => {
+    //     console.log(e.target.value)
+    // })
+
+    //Task-7:
+    // const form = document.querySelector('form')
+    // const submit = document.querySelector('#submit')
+    // submit.addEventListener('click',(e) => {
+    //     e.preventDefault()
+        
+    //     console.log(document.querySelector('#name').value)
+    //     console.log(document.querySelector('#age').value)
+    // })
+
+    //Task-8:
+    const dropdown = document.querySelector('#lang')
+    dropdown.querySelectorAll('option').forEach( (o) => {
+        o.addEventListener('click', (e) => 
+    {
+        document.querySelector('#result').innerText = `You selected: ${e.target.innerText}`
+    })
+    } )
+
+    //Activity-5: Event Delgation
+    document.querySelector('#list').querySelectorAll('li').forEach( (l) => {
+        l.addEventListener('click',() => {
+            console.log(l.innerText)
+        })
+    } )
+</script>
+</html>

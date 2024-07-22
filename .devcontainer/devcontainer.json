@@ -21,7 +21,8 @@
 				"esbenp.prettier-vscode",
 				"vscode-icons-team.vscode-icons",
 				"wayou.vscode-todo-highlight",
-				"formulahendry.code-runner"
+				"formulahendry.code-runner",
+				"ritwickdey.LiveServer"
 			],
 			"settings": {
 				"editor.fontSize": 32,
