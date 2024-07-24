@@ -98,6 +98,76 @@
 
 
 //Task-7:
-async function fun(){
-    
+// const myPromise = new Promise( (resolve) => {
+//     try{
+//         let success = false
+
+//         if(success){
+//             resolve("The Operation Was Successful")
+//         }else{
+//             throw new Error("Operation Failed")
+//         }
+//     }catch(e){
+//         console.error(e);
+//     }
+// } )
+
+// async function resolvePromise(promise){
+//     try{
+//         const result = await promise;
+//         console.log(result);
+//     }catch(e){
+//         console.error(e);
+//     }finally{
+//         console.log("Operation Completed");
+//     }
+// }
+
+// resolvePromise(myPromise)
+
+//Activity-5: Graceful Error Handling in Fetch
+// const resolveAPI = new Promise( (resolve,reject) => {
+//     fetch("https://invalidapi.com")
+//         .then( response => {
+//             if(!resolve.ok)
+//                 throw new Error("Error fetching data")
+//             else
+//                 return response.json
+//         } )
+//         .then(data => {
+//             resolve("Data Fetched");
+//         })
+//         .catch(e => {
+//             reject(e)
+//         })
+// } )
+
+// resolveAPI
+//     .then( result => {
+//         console.log(result);
+//     } )
+//     .catch(e => {
+//         console.error(e);
+//     })
+
+async function resolveAPI(url){
+    try{
+        const response = await fetch(url)
+        if(!response.ok){
+            throw new Error("Error fetching data")
+        }
+        const data = await response.json()
+        return data
+    }
+    catch(e){
+        throw new Error(e.message)
+    }
 }
+
+resolveAPI("https://invalidapi.com")
+    .then(result => {
+        console.log("DONE" +result);
+    })
+    .catch( e => {
+        console.error(e);
+    })
